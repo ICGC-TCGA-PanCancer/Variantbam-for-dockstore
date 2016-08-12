@@ -1,5 +1,5 @@
 #!/usr/bin/env cwl-runner
-cwlVersion: cwl:draft-3
+cwlVersion: v1.0
 class: CommandLineTool
 id: "VariantBam"
 label: "VariantBam"
@@ -32,20 +32,25 @@ inputs:
       inputBinding:
         position: 1
         prefix: "-i"
-    - id: "#input-snv"
-      type: File
+    - id: "#outfile"
+      type: string
       inputBinding:
         position: 2
-        prefix: "-l"
-    - id: "#input-sv"
+        prefix: "-o"
+    - id: "#input-snv"
       type: File
       inputBinding:
         position: 3
         prefix: "-l"
-    - id: "#input-indel"
+    - id: "#input-sv"
       type: File
       inputBinding:
         position: 4
+        prefix: "-l"
+    - id: "#input-indel"
+      type: File
+      inputBinding:
+        position: 5
         prefix: "-l"
     - id: "#snv-padding"
       type: string
@@ -63,6 +68,6 @@ outputs:
     - id: "#minibam"
       type: File
       outputBinding:
-        glob: mini.bam
+        glob: $(inputs.outfile)
 
 baseCommand: variant
