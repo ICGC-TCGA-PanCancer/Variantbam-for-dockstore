@@ -20,7 +20,7 @@ dct:contributor:
 
 requirements:
     - class: DockerRequirement
-      dockerPull: variantbam
+      dockerPull: quay.io/pancancer/variantbam
     - class: InlineJavascriptRequirement
 
 stdout: stdout.txt
