@@ -60,9 +60,9 @@ inputs:
       type: string
 
 arguments:
-    - valueFrom: $("pad["+inputs['sv-padding']+"];mlregion@/"+inputs['input-sv'].path+"%pad["+inputs['snv-padding']+"];mlregion@/"+inputs['input-snv'].path+"%pad["+inputs['indel-padding']+"]mlregion@/"+inputs['input-indel'].path)
+    - valueFrom: $("pad["+inputs['sv-padding']+"];mlregion@"+inputs['input-sv'].path+"%pad["+inputs['snv-padding']+"];mlregion@"+inputs['input-snv'].path+"%pad["+inputs['indel-padding']+"]mlregion@"+inputs['input-indel'].path)
       prefix: "-r"
-      position: 5
+      position: 6
 
 outputs:
     - id: "#minibam"
