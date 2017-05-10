@@ -60,7 +60,7 @@ inputs:
       type: string
 
 arguments:
-    - valueFrom: $("pad["+inputs['sv-padding']+"];mlregion@"+inputs['input-sv'].path+"%pad["+inputs['snv-padding']+"];mlregion@"+inputs['input-snv'].path+"%pad["+inputs['indel-padding']+"]mlregion@"+inputs['input-indel'].path)
+    - valueFrom: $( "{\"snv\":{\"region\":\"" + inputs['input-snv'].path + "\",\"pad\":" + inputs['snv-padding'] + "},\"indel\":{\"region\":\"" + inputs['input-indel'].path + "\",\"pad\":" + inputs['indel-padding'] + "},\"sv\":{\"region\":\"" + inputs['input-sv'].path + "\",\"pad\":" + inputs['sv-padding'] + "}}" )
       prefix: "-r"
       position: 6
 
