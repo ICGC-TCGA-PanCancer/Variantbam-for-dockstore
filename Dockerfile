@@ -1,15 +1,16 @@
 FROM ubuntu:14.04
-MAINTAINER Solomon.Shorser@oicr.on.ca
+LABEL maintainer Solomon.Shorser@oicr.on.ca
 LABEL description="This docker image contains VariantBam by Jeremiah Wala (jwala@broadinstitute.org).\
 See https://github.com/jwalabroad/VariantBam for more information about VariantBam."
 
 RUN mkdir -p /opt/variantbam_workspace
 WORKDIR /opt/variantbam_workspace
 
-RUN apt-get update
-RUN apt-get install -y git g++ zlib1g-dev make libboost-all-dev
-
 ENV VARIANT_BAM_VERSION=v1.4.3
+
+RUN apt-get update
+RUN apt-get install -y git g++ zlib1g-dev make libboost-all-dev \
+	rtmpdump=2.4+20121230.gitdf6c518-1ubuntu0.1
 
 RUN git clone --recursive https://github.com/walaj/VariantBam.git && cd VariantBam && git checkout $VARAINT_BAM_VERSION && git status
 # && cd SnowTools && git status
