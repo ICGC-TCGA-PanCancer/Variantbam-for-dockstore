@@ -4,7 +4,7 @@ class: CommandLineTool
 id: "VariantBam"
 label: "VariantBam"
 
-description: |
+doc: |
     This is the VariantBam tool used in the PCAWG project.
     VariantBam was created by Jeremiah Wala (jwala@broadinstitute.org).
     This CWL wrapper was created by Solomon Shorser.
