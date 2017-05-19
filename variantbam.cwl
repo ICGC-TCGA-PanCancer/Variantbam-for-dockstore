@@ -69,5 +69,9 @@ outputs:
       type: File
       outputBinding:
         glob: $(inputs.outfile)
+    - id: "#bai"
+      type: File
+      outputBinding:
+        glob: "*.bai"
 
 baseCommand: variant
