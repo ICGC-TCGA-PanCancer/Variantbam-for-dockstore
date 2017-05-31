@@ -20,7 +20,7 @@ dct:contributor:
 
 requirements:
     - class: DockerRequirement
-      dockerPull: test_variantbam
+      dockerPull: quay.io/pancancer/variantbam
     - class: InlineJavascriptRequirement
 
 stdout: stdout.txt
@@ -31,27 +31,22 @@ inputs:
       type: File
       inputBinding:
         position: 1
-        # prefix: "-i"
     - id: "#outfile"
       type: string
       inputBinding:
         position: 2
-        # prefix: "-o"
     - id: "#input-snv"
       type: File
       inputBinding:
         position: 3
-        # prefix: "-l"
     - id: "#input-sv"
       type: File
       inputBinding:
         position: 4
-        # prefix: "-l"
     - id: "#input-indel"
       type: File
       inputBinding:
         position: 5
-        # prefix: "-l"
     - id: "#snv-padding"
       type: string
     - id: "#sv-padding"
@@ -61,7 +56,6 @@ inputs:
 
 arguments:
     - valueFrom: $( "{\"snv\":{\"region\":\"" + inputs['input-snv'].path + "\",\"pad\":" + inputs['snv-padding'] + "},\"indel\":{\"region\":\"" + inputs['input-indel'].path + "\",\"pad\":" + inputs['indel-padding'] + "},\"sv\":{\"region\":\"" + inputs['input-sv'].path + "\",\"pad\":" + inputs['sv-padding'] + "}}" )
-    #   prefix: "-r"
       position: 6
 
 outputs:
@@ -71,10 +65,5 @@ outputs:
         glob: $(inputs.outfile)
       secondaryFiles:
           - "*.bai"
-
-    # - id: "#bai"
-    #   type: File
-    #   outputBinding:
-    #     glob: "*.bai"
 
 baseCommand: [ /opt/variantbam_workspace/run_variant_bam.sh ]
