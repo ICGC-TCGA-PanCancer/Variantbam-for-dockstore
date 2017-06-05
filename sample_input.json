@@ -1,0 +1,26 @@
+{
+    "input-bam":
+    {
+        "class":"File",
+        "path":"/path/to/inputs/MyBAMFile.bam"
+    },
+    "outfile": "/path/to/outputs/miniMyBamFile.bam",
+	"input-snv":
+    {
+        "class":"File",
+        "path":"/path/to/inputs/snv.vcf"
+    },
+    "input-sv":
+    {
+        "class":"File",
+        "path":"/path/to/inputs/sv.vcf"
+    },
+    "input-indel":
+    {
+        "class":"File",
+        "path":"/path/to/inputs/indel.vcf"
+    },
+    "snv-padding": "10",
+    "sv-padding": "50",
+    "indel-padding": "93"
+}
