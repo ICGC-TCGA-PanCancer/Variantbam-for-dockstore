@@ -10,7 +10,8 @@ ENV VARIANT_BAM_VERSION=v1.4.3
 
 RUN apt-get update
 RUN apt-get install -y git=1:1.9.1-1ubuntu0.5 g++ zlib1g-dev make libboost-all-dev \
-	rtmpdump=2.4+20121230.gitdf6c518-1ubuntu0.1 bash=4.3-7ubuntu1.7 sudo=1.8.9p5-1ubuntu1.4
+	rtmpdump=2.4+20121230.gitdf6c518-1ubuntu0.1 bash=4.3-7ubuntu1.7 sudo=1.8.9p5-1ubuntu1.4 \
+	openldap=2.4.31-1+nmu2ubuntu8.4
 
 RUN git clone --recursive https://github.com/walaj/VariantBam.git && cd VariantBam && git checkout $VARAINT_BAM_VERSION && git status
 # && cd SnowTools && git status
