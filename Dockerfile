@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 LABEL maintainer Solomon.Shorser@oicr.on.ca
 LABEL description="This docker image contains VariantBam by Jeremiah Wala (jwala@broadinstitute.org).\
 See https://github.com/jwalabroad/VariantBam for more information about VariantBam."
@@ -9,14 +9,14 @@ WORKDIR /opt/variantbam_workspace
 ENV VARIANT_BAM_VERSION=v1.4.3
 
 RUN apt-get update
-RUN apt-get install -y git=1:1.9.1-1ubuntu0.5
+RUN apt-get install -y git
 RUN apt-get install -y g++
 RUN apt-get install -y zlib1g-dev
 RUN apt-get install -y make
 RUN apt-get install -y libboost-all-dev
-RUN apt-get install -y rtmpdump=2.4+20121230.gitdf6c518-1ubuntu0.1
-RUN apt-get install -y bash=4.3-7ubuntu1.7
-RUN apt-get install -y sudo=1.8.9p5-1ubuntu1.4
+RUN apt-get install -y rtmpdump
+RUN apt-get install -y bash
+RUN apt-get install -y sudo
 
 RUN git clone --recursive https://github.com/walaj/VariantBam.git && cd VariantBam && git checkout $VARAINT_BAM_VERSION && git status
 
