@@ -62,8 +62,11 @@ outputs:
     - id: "#minibam"
       type: File
       outputBinding:
-        glob: $(inputs.outfile)
-      secondaryFiles:
-          - "*.bai"
+        glob: "$(inputs.outfile)"
+    - id: "#minibamIndex"
+      type: File
+      outputBinding:
+        glob: "$(inputs.outfile)*.bai"
+
 
 baseCommand: [ /opt/variantbam_workspace/run_variant_bam.sh ]
