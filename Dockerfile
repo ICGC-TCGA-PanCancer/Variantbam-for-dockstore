@@ -9,18 +9,11 @@ WORKDIR /opt/variantbam_workspace
 ENV VARIANT_BAM_VERSION=v1.4.3
 
 RUN apt-get update
-RUN apt-get install -y git
-RUN apt-get install -y g++
-RUN apt-get install -y zlib1g-dev
-RUN apt-get install -y make
-RUN apt-get install -y libboost-all-dev
-RUN apt-get install -y rtmpdump
-RUN apt-get install -y bash
-RUN apt-get install -y sudo
+RUN apt-get install -y git g++ zlib1g-dev make libboost-all-dev rtmpdump bash sudo xz-utils lzma liblzma-dev libbz2-dev
 
 RUN git clone --recursive https://github.com/walaj/VariantBam.git && cd VariantBam && git checkout $VARAINT_BAM_VERSION && git status
 
-RUN cd VariantBam && ./configure && make
+RUN cd VariantBam &&  ./configure && make
 RUN ln -s  /opt/variantbam_workspace/VariantBam/src/variant /bin/variant
 # self-test - find out why the command on the github page (VariantBam/src/variant test/small.bam -g 'X:1,000,000-1,100,000' -r mapq[10,100] -c counts.tsv -o mini.bam -v) doesn't seem to work.
 #RUN cd VariantBam && variant test/small.bam -o mini.bam -v && stat mini.bam
